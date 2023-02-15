@@ -11,7 +11,7 @@ use Laravel\Octane\Events\RequestReceived as OctaneRequestReceived;
 
 class ProxySchemeServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
         if (isset($_SERVER['LARAVEL_OCTANE'])) {
             return;
@@ -24,7 +24,7 @@ class ProxySchemeServiceProvider extends ServiceProvider
         });
     }
 
-    public function boot(Dispatcher $events)
+    public function boot(Dispatcher $events): void
     {
         if (! isset($_SERVER['LARAVEL_OCTANE'])) {
             return;
